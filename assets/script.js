@@ -10,7 +10,7 @@ function generatePassword() {
       window.alert("You need to provide a valid number! Please try again.");
       return generatePassword();
     }
-    
+
     if (passwordLength >= 8 && passwordLength <= 128) {
       var lowercase = confirm("Click OK to include lowercase characters.");
       var uppercase = confirm("Click OK to include uppercase characters.");
@@ -26,7 +26,7 @@ function generatePassword() {
       return generatePassword();
     }
 
-  var passwordCharacters = []
+  var passwordCharacters = [""]
     if (lowercase === true) {
       passwordCharacters = passwordCharacters.concat(lowercaseOptions)
     }
