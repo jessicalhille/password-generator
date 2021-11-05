@@ -10,47 +10,43 @@ function generatePassword() {
       window.alert("You need to provide a valid number! Please try again.");
       return generatePassword();
     }
+    
     if (passwordLength >= 8 && passwordLength <= 128) {
-      console.log(passwordLength)
+      var lowercase = confirm("Click OK to include lowercase characters.");
+      var uppercase = confirm("Click OK to include uppercase characters.");
+      var numeric = confirm("Click OK to include numeric characters.");
+      var special = confirm("Click OK to include special characters.");    
     } else {
       window.alert("You must type a number between 8 and 128! Please try again.");
       return generatePassword();
     }
 
-  var lowercase = confirm("Click OK to include lowercase characters.");
-  var uppercase = confirm("Click OK to include uppercase characters.");
-  var numericChar = confirm("Click OK to include numeric characters.");
-  var specialChar = confirm("Click OK to include special characters.");
-
-    if (lowercase === false && uppercase === false && numericChar === false && specialChar === false) {
+    if (lowercase === false && uppercase === false && numeric === false && special === false) {
       window.alert("You must choose at least one option! Please try again.");
       return generatePassword();
     }
 
   var passwordCharacters = []
-
-  if (lowercase) {
-    passwordCharacters = passwordCharacters.concat(lowercaseOptions)
-  }
-  if (uppercase) {
-    passwordCharacters = passwordCharacters.concat(uppercaseOptions)
-  }
-  if (numberOptions) {
-    passwordCharacters = passwordCharacters.concat(numberOptions)
-  }
-  if (specialOptions) {
-    passwordCharacters = passwordCharacters.concat(specialOptions)
-  }
+    if (lowercase === true) {
+      passwordCharacters = passwordCharacters.concat(lowercaseOptions)
+    }
+    if (uppercase === true) {
+      passwordCharacters = passwordCharacters.concat(uppercaseOptions)
+    }
+    if (numeric === true) {
+      passwordCharacters = passwordCharacters.concat(numberOptions)
+    }
+    if (special === true) {
+      passwordCharacters = passwordCharacters.concat(specialOptions)
+    }
 
   var password = ""
-
-  for (var i = 0; i < passwordLength; i++) {
-    password = password + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-  }
+    for (var i = 0; i < passwordLength; i++) {
+      password = password + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+    }
 
   return password;
 } 
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
