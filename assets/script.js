@@ -4,6 +4,7 @@ var uppercaseOptions = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "
 var numberOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialOptions = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 
+// defined function to generatePassword
 function generatePassword() {
   var passwordLength = window.prompt("How many characters would you like your password to contain?"); 
     if (passwordLength === "" || passwordLength === null) {
@@ -11,6 +12,7 @@ function generatePassword() {
       return generatePassword();
     }
 
+    // if length is correct, the other prompts appear
     if (passwordLength >= 8 && passwordLength <= 128) {
       var lowercase = confirm("Click OK to include lowercase characters.");
       var uppercase = confirm("Click OK to include uppercase characters.");
@@ -21,12 +23,14 @@ function generatePassword() {
       return generatePassword();
     }
 
+    // if none of the prompts are selected, no password can be created, so the site will restart
     if (lowercase === false && uppercase === false && numeric === false && special === false) {
       window.alert("You must choose at least one option! Please try again.");
       return generatePassword();
     }
 
   var passwordCharacters = [""]
+  // one or more of the prompts selected with "OK" are connected to arrays at the top of the code
     if (lowercase === true) {
       passwordCharacters = passwordCharacters.concat(lowercaseOptions)
     }
@@ -40,6 +44,7 @@ function generatePassword() {
       passwordCharacters = passwordCharacters.concat(specialOptions)
     }
 
+  // creation of password using the user inputs
   var password = ""
     for (var i = 0; i < passwordLength; i++) {
       password = password + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
