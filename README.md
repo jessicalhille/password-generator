@@ -27,6 +27,8 @@ The challenge was to create an application that an employee could use to generat
 
 ***
 
+<img width="876" alt="Screen Shot 2021-11-06 at 5 48 12 PM" src="https://user-images.githubusercontent.com/91511805/140626061-d9fbc054-c8b3-4c89-932b-18eccc6d16a5.png">
+
 ***
 
 ## Link to Deployed Application
